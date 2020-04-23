@@ -59,10 +59,8 @@ class TableComponent implements Component, Observer {
                 break;
             case 'setLive':
             case 'setEmpty':
-                this.updateCell(event.point);
-                break;
             case 'turn':
-                this.updateTable();
+                this.updateTable(event.points);
                 break;
         }
     }
@@ -76,11 +74,9 @@ class TableComponent implements Component, Observer {
         }
     }
 
-    private updateTable(): void {
-        this.table.querySelectorAll('tr').forEach((row: HTMLTableRowElement, y: number) => {
-            row.querySelectorAll('td').forEach((cell: HTMLTableDataCellElement, x: number) => {
-                this.updateCell(new Point(x, y));
-            });
+    private updateTable(updated: Point[]): void {
+        updated.forEach((point: Point) => {
+            this.updateCell(point);
         });
     }
 

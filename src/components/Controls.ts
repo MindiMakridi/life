@@ -56,7 +56,7 @@ class ControlsComponent implements Component, Observer {
 
     private createSelect(): HTMLSelectElement {
         const select: HTMLSelectElement = document.createElement('select');
-        for(let i = 30; i <= 500; i += 10) {
+        for(let i = 30; i <= 200; i += 10) {
             let option: HTMLOptionElement = document.createElement('option');
             option.value = i.toString();
             option.innerText = i.toString();

@@ -65,8 +65,8 @@ class Controller {
 
     start(): void {
         this.intervalId = window.setInterval(() => {
-            this.game.turn();
-            this.updated({type: 'turn'});
+            const points: Array<Point> = this.game.turn();
+            this.updated(<any>{type: 'turn', points});
         }, 1000/this.speed);
         this.updated({type: 'start'});
     }
@@ -80,14 +80,14 @@ class Controller {
     setLive(point: Point): void {
         this.pause();
         this.game.setLive(point);
-        this.updated(<any>{type: 'setLive', point});
+        this.updated(<any>{type: 'setLive', points: [point]});
     }
 
     setEmpty(point: Point): void {
         this.pause();
         this.game.setEmpty(point);
         let obj  = {type: 'setEmpty', point};
-        this.updated(<any>{type: 'setEmpty', point});
+        this.updated(<any>{type: 'setEmpty', points: [point]});
     }
 
     getPoint(point: Point): boolean {

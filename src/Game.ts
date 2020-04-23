@@ -20,15 +20,20 @@ class Game {
         }
     }
 
-    turn(): void {
+    turn(): Array<Point> {
+        const updatedPoints: Array<Point> = [];
         this._nextGen.forEach((values: boolean[], y: number) => {
             values.forEach((value: boolean, x: number) => {
                 this._nextGen[y][x] = this.isAlive(new Point(x, y));
+                if (this._nextGen[y][x] != this._currentGen[y][x]){
+                    updatedPoints.push(new Point(x, y));
+                }
             });
         });
         this._nextGen.forEach((values: boolean[], y: number) => {
             this._currentGen[y] = values.slice();
         });
+        return updatedPoints;
     }
 
     getPoint(point: Point): boolean {

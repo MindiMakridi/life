@@ -9,7 +9,7 @@ interface Event {
     rows: number;
     columns: number;
     hasBoundaries: boolean;
-    point?: Point;
+    points?: Array<Point>
     [propName: string]: any;
 }
 

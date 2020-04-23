@@ -94,7 +94,7 @@ abstract class Figure implements Component {
                 deltaX = event.x - table.getBoundingClientRect().x;
                 deltaY = event.y - table.getBoundingClientRect().y;
             }
-            table.style.top = event.y - deltaY + 'px';
+            table.style.top = event.y - deltaY + window.scrollY + 'px';
             table.style.left = event.x - deltaX + 'px';
             if (this.fitsInside(table)) {
                 table.classList.add('fit');

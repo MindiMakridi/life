@@ -1,0 +1,34 @@
+
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table.game-table {
+    cursor: url('../assets/icon/pencil.png'), default;
+}
+
+table.eraser {
+    cursor: url('../assets/icon/eraser.png'), default;
+}
+td {
+    width: 20px;
+    position: relative;
+}
+td:after {
+    content: '';
+    display: block;
+    margin-top: 100%;
+}
+
+td.active {
+    background-color: green;
+}
+
+select {
+    margin-right: 10px;
+}
+
+.figure {
+    cursor: pointer;
+}

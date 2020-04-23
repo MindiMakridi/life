@@ -1,0 +1,15 @@
+label {
+    display: inline-block;
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url('../assets/icon/eraser.png');
+}
+
+label.active {
+    background-image: url('../assets/icon/pencil.png');
+}
+
+input {
+    display: none;
+}
